@@ -1,5 +1,13 @@
-* {
-  box-sizing: border-box;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sand: #f4efe9;
+  --blush: #edd9d3;
+  --stone: #443e39;
+  --gold: #b18a5d;
+  --ink: #181614;
 }
 
 html {
@@ -8,16 +16,13 @@ html {
 
 body {
   margin: 0;
-  background: #f4f1ed;
-  color: #1d1a19;
+  background: #f4efe9;
+  color: var(--ink);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
+* {
+  box-sizing: border-box;
 }
 
 img {
@@ -25,44 +30,51 @@ img {
   display: block;
 }
 
-:root {
-  --sand: #f4f1ed;
-  --blush: #e8d9d5;
-  --stone: #4a443d;
-  --gold: #b18a58;
-  --ink: #1d1a19;
-  --panel: rgba(255,255,255,0.74);
-  --line: rgba(29,26,25,0.12);
+button, input, textarea, select {
+  font: inherit;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    @apply bg-[#f4f1ed] text-[#1d1a19];
-  }
+.section-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
-@layer components {
-  .section-wrap {
-    @apply mx-auto max-w-6xl px-4 sm:px-6 lg:px-8;
-  }
+.panel {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(24,22,20,0.08);
+  border-radius: 28px;
+  box-shadow: 0 18px 48px rgba(24,22,20,0.06);
+  backdrop-filter: blur(8px);
+}
 
-  .panel {
-    @apply rounded-[28px] border border-[rgba(29,26,25,0.1)] bg-white/75 shadow-soft backdrop-blur-sm;
-  }
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #887760;
+}
 
-  .eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-[0.28em] text-[#8a7765];
-  }
+.soft-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(24,22,20,0.1);
+  background: white;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 12px;
+  color: #181614;
+}
 
-  .soft-button {
-    @apply inline-flex items-center justify-center rounded-full border border-[#1d1a19]/12 bg-white px-5 py-3 text-sm font-medium text-[#1d1a19] transition hover:-translate-y-0.5 hover:bg-[#f7f3f0];
-  }
-
-  .primary-button {
-    @apply inline-flex items-center justify-center rounded-full bg-[#1d1a19] px-5 py-3 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:bg-[#2e2825];
-  }
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #181614;
+  color: white;
+  padding: 10px 18px;
+  font-size: 12px;
 }
